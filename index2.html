@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+     <!--Isidro Vazquez Erick Hector-->
+<!--7/10/2025-->
+<!--Este programa es una aplicación web simple que permite al usuario generar y visualizar la tabla de multiplicar de cualquier número del 1 al 10-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+    <h1>Tabla multiplicar</h1>
+    <label for=numero>Introduce un Numero</label>
+    <input type="" id="numero" min = 0 />
+    <button onclick="mostrarTabla()">Mostrar Tabla</button>
+
+    <div id="Resultado"></div>
+
+
+    <script>
+        // Función principal que genera y muestra la tabla de multiplicar
+        function mostrarTabla() {
+            // Obtiene el valor del campo 'numero' y lo convierte a entero.
+            const numero = parseInt(document.getElementById('numero').value);
+            // Obtiene la referencia al contenedor de resultados.
+            document.getElementById('Resultado');
+            Resultado.innerHTML = ''; // Limpia el contenido previo del contenedor de resultados
+
+            // Validación: Si la entrada no es un número válido (NaN), muestra un mensaje de error
+            if(isNaN(numero)){
+                Resultado.innerHTML = '<p>Por favor introduce un número válido;</p>'
+                return;  // Detiene la ejecución de la función
+            }
+
+            // Inicializa la variable 'tabla' con el título y la etiqueta de lista no ordenada (<ul>).
+             let tabla = `<h2>Tabla del ${numero}</h2><ul>`;
+                // Bucle for: Itera desde 1 hasta 10 para generar las 10 multiplicaciones
+                for(let i = 1; i <= 10; i++){
+                    // Concatena un nuevo ítem de lista (<li>) con el formato: "Número x i = Resultado"
+                    tabla += `<li>${numero} x ${i} = ${numero*i}</li>`
+                }
+                tabla += '</ul>'; // Cierra la etiqueta de lista no ordenada
+                Resultado.innerHTML = tabla;  // Inserta el contenido HTML generado dentro del contenedor 'Resultado'
+        }
+    </script>
+</body>
+</html>
